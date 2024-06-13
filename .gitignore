@@ -1,0 +1,3 @@
+# terraform Compiled files
+terraform/.terr*
+terraform/terr*
