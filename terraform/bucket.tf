@@ -1,6 +1,6 @@
 resource "google_storage_bucket" "storage" {
  name          = "se-data-landing-sumant"
- location      = "ASIA-SOUTH2"
+ location      = "US-CENTRAL1"
  storage_class = "STANDARD"
  force_destroy = true
 

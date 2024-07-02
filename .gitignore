@@ -1,3 +1,6 @@
 # terraform Compiled files
 terraform/.terr*
 terraform/terr*
+bucket-content-rsync/*
+*.csv
+terraform/main.zip
