@@ -1,0 +1,21 @@
+{
+  "textPayload": "event data {'attributes': {'id': '11795884530363179', 'time': '2024-07-19T06:28:12.144Z', 'specversion': '1.0', 'datacontenttype': 'application/json', 'type': 'google.cloud.storage.object.v1.finalized', 'source': '//storage.googleapis.com/projects/_/buckets/se-data-landing-sumant', 'subject': 'objects/movie_temp_2024071911_56_00.csv'}, 'data': {'bucket': 'se-data-landing-sumant', 'contentType': 'text/csv', 'crc32c': 'htNP7g==', 'etag': 'CLvBzOW8socDEAE=', 'generation': '1721370491953339', 'id': 'se-data-landing-sumant/movie_temp_2024071911_56_00.csv/1721370491953339', 'kind': 'storage#object', 'md5Hash': 's3Ebc8SwFCpbmXx65ZpZ3w==', 'mediaLink': 'https://storage.googleapis.com/download/storage/v1/b/se-data-landing-sumant/o/movie_temp_2024071911_56_00.csv?generation=1721370491953339&alt=media', 'metadata': {'goog-reserved-file-mtime': '1719897438'}, 'metageneration': '1', 'name': 'movie_temp_2024071911_56_00.csv', 'selfLink': 'https://www.googleapis.com/storage/v1/b/se-data-landing-sumant/o/movie_temp_2024071911_56_00.csv', 'size': '1124', 'storageClass': 'STANDARD', 'timeCreated': '2024-07-19T06:28:11.958Z', 'timeStorageClassUpdated': '2024-07-19T06:28:11.958Z', 'updated': '2024-07-19T06:28:11.958Z'}}",
+  "insertId": "669a077d0002439456ab0d25",
+  "resource": {
+    "type": "cloud_function",
+    "labels": {
+      "region": "us-central1",
+      "project_id": "ee-india-se-data",
+      "function_name": "newFileInBucket"
+    }
+  },
+  "timestamp": "2024-07-19T06:28:13.148372Z",
+  "labels": {
+    "instance_id": "0087244a8034ef1c89c95a260d36bb219633b4e6854c3ea0062cddbc544a0e7efc193cf3e2368c72b37f581b01e387b59008126d6f1e6362cfe490d4ac00f29b986b",
+    "execution_id": "14htg91u344x",
+    "runtime_version": "python311_20240714_3_11_9_RC00"
+  },
+  "logName": "projects/ee-india-se-data/logs/cloudfunctions.googleapis.com%2Fcloud-functions",
+  "trace": "projects/ee-india-se-data/traces/7415c2cf6a6dea39857f4616c33dfa00",
+  "receiveTimestamp": "2024-07-19T06:28:13.483037416Z"
+}

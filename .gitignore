@@ -4,3 +4,5 @@ terraform/terr*
 bucket-content-rsync/*
 *.csv
 terraform/main.zip
+movie-raw-data-loader/movie-raw-data-loader
+movie-raw-data-loader/.DS_Store
