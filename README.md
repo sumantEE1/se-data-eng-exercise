@@ -17,4 +17,12 @@ Gcloud function
     * Created cloudfunction with following config
         * source_archive_bucket is `"${google_storage_bucket.function-bucket.name}"`
         * source_archive_object is  `"${google_storage_bucket_object.archive.name}"`
-
+* Create python virtual environment
+    * python3 -m venv <name of enviroment> * keep the name small *
+* Terraform supports archive of folder
+    * add the env folder to excludes <name of enviroment> (took time to find adding)
+* Activate the environment `source <name of enviroment>/bin/activate>`
+* Install python library `pip install -r requirements.txt` # read about option for pip install
+* Freeze pip dependency
+    * `pip freeze > requirements.txt`
+    * `pip freeze >> requirements.txt`
