@@ -1,0 +1,12 @@
+name: 'Deploy cloudfunction Q 4.2'
+description: 'Deploy cloudfunction'
+
+on: 
+  push:
+    branches: 
+      - main
+jobs:
+  label_issue:
+    runs-on: ubuntu-latest
+    name: 'Deploy'
+    run: echo 'hello sumant' 
