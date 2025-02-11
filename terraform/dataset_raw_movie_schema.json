@@ -1,0 +1,146 @@
+[
+    {
+        "name": "adult",
+        "type": "BOOLEAN",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "belongs_to_collection",
+        "type": "JSON",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "budget",
+        "type": "FLOAT",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "genres",
+        "type": "JSON",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "homepage",
+        "type": "STRING",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "imdb_id",
+        "type": "STRING",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "original_language",
+        "type": "STRING",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "original_title",
+        "type": "STRING",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "overview",
+        "type": "STRING",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "popularity",
+        "type": "FLOAT",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "poster_path",
+        "type": "STRING",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "production_companies",
+        "type": "JSON",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "production_countries",
+        "type": "JSON",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "release_date",
+        "type": "STRING",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "revenue",
+        "type": "STRING",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "runtime",
+        "type": "INTEGER",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "spoken_languages",
+        "type": "JSON",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "status",
+        "type": "STRING",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "tagline,",
+        "type": "STRING",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "title,",
+        "type": "STRING",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "video,",
+        "type": "BOOLEAN",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "vote_average,",
+        "type": "FLOAT",
+        "mode": "nullable",
+        "description": ""
+    },
+    {
+        "name": "vote_count",
+        "type": "INTEGER",
+        "mode": "nullable",
+        "description": ""
+    }
+]

@@ -1,4 +1,8 @@
 # se-data-eng-exercise
+* threw error
+ project: required field is not set
+* https://discuss.hashicorp.com/t/error-project-required-field-is-not-set/22128 said to run
+```terraform state pull > state.json```
 
 gc-profile 
 * GOOGLE_APPLICATION_CREDENTIALS 
@@ -23,6 +27,6 @@ Gcloud function
     * add the env folder to excludes <name of enviroment> (took time to find adding)
 * Activate the environment `source <name of enviroment>/bin/activate>`
 * Install python library `pip install -r requirements.txt` # read about option for pip install
-* Freeze pip dependency
+* Not mandatory Freeze pip dependency
     * `pip freeze > requirements.txt`
     * `pip freeze >> requirements.txt`
