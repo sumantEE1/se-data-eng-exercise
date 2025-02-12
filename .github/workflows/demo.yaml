@@ -1,5 +1,4 @@
-name: 'Deploy cloudfunction Q 4.2'
-description: 'Deploy cloudfunction'
+name: Deploy cloudfunction
 
 on: 
   push:
