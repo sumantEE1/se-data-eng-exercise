@@ -2,12 +2,7 @@ from google.cloud import bigquery
 
 client = bigquery.Client()
 
-def newRawMovieFileAddedToBucket(data,context):
-  table_id = "ee-india-se-data.movie_data_feb25_sumant.movie_data_raw_table_feb25"
-  print("file-name*** {}".format(data["name"]))
-  print("bucket***{}".format(data["bucket"]))
-
-  job_config = bigquery.LoadJobConfig(
+raw_movie_job_config = bigquery.LoadJobConfig(
     schema=[
         bigquery.SchemaField("adult","STRING"),
         bigquery.SchemaField("belongs_to_collection" ,"STRING"),
@@ -39,19 +34,44 @@ def newRawMovieFileAddedToBucket(data,context):
     # The source format defaults to CSV, so the line below is optional.
     source_format=bigquery.SourceFormat.CSV,
   )
-  bucket = data["bucket"]
+
+ratings_job_config = bigquery.LoadJobConfig(
+  schema = [
+    bigquery.SchemaField("userId","STRING"),
+    bigquery.SchemaField("movieId","STRING"),
+    bigquery.SchemaField("rating","STRING"),
+    bigquery.SchemaField("timestamp","STRING")
+  ],
+  skip_leading_rows=1,
+    # The source format defaults to CSV, so the line below is optional.
+  source_format=bigquery.SourceFormat.CSV,
+)
+
+raw_movie_table_id = "ee-india-se-data.movie_data_feb25_sumant.movie_data_raw_table_feb25"
+ratings_table_id = "ee-india-se-data.movie_data_feb25_sumant.ratings_table_feb25"
+
+def newRawMovieFileAddedToBucket(data,context):
   name = data["name"]
+  bucket = data["bucket"]
   uri = f"gs://{bucket}/{name}"
-  print("uri {}".format(uri))
-  print("job config".format(job_config))
+  print("file name {}".format(data["name"]))
+  if (name.startswith("movie")):   
+    loadData(uri,raw_movie_table_id,raw_movie_job_config,name)
+  elif (name.startswith("ratings")):
+    loadData(uri,ratings_table_id,ratings_job_config,name)
+  else :
+    print("Invalid file")
+
+
+def loadData(file_uri,table_id,job_config,file_name):
   
   destination_table = client.get_table(table_id)
-  print("Before Load {} rows".format(destination_table.num_rows))
+  print("Before Load {} {} rows".format(table_id,destination_table.num_rows))
 
   load_job = client.load_table_from_uri(
-      uri, table_id, job_config=job_config
+    file_uri, table_id, job_config=job_config
   )  # Make an API request.
 
   load_job.result()  # Waits for the job to complete.
   destination_table = client.get_table(table_id)
-  print("Loaded {} rows".format(destination_table.num_rows))
+  print("Loaded {} data {} rows".format(file_name,destination_table.num_rows))

@@ -7,5 +7,6 @@ on:
 jobs:
   label_issue:
     runs-on: ubuntu-latest
-    name: 'Deploy'
-    run: echo 'hello sumant' 
+    name: 'Demo Job'
+    steps:
+      - run:  echo "Hello"
