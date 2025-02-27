@@ -3,7 +3,7 @@ name: Deploy cloudfunction
 env:
   project_id: ee-india-se-data
   REGION: us-east1
-  GOOGLE_APP_CRED: ${{ secrets.GOOGLE_DEFAULT_CREDENTIAL }}
+  GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_DEFAULT_CREDENTIAL }}
 
 
 on: 
@@ -30,17 +30,17 @@ jobs:
       - name: Terraform fmt
         id: fmt
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APP_CRED }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
         run: terraform fmt -check
         continue-on-error: true
       - name: Terraform Init
         id: Init
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APP_CRED }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
         run:  terraform init
       - name: Terraform Plan
         id: plan
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APP_CRED }}
-          GOOGLE_CREDENTIALS: ${{ env.GOOGLE_APP_CRED }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
+          GOOGLE_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
         run: terraform plan -no-color
