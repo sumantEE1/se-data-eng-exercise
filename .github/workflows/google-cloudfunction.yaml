@@ -2,6 +2,7 @@ name: Deploy cloudfunction
 
 env:
   project_id: ee-india-se-data
+  SERVICE: se-data-india-service-account
   REGION: us-east1
   GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_DEFAULT_CREDENTIAL }}
 
