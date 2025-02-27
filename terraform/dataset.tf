@@ -1,5 +1,5 @@
 resource "google_bigquery_dataset" "dataset" {
-  dataset_id                  = "movie_data_feb25_sumant"
+  dataset_id                  = var.dataset
   friendly_name               = "movie_dataset_sumant"
   project                     = "ee-india-se-data"
   description                 = "Data set for movie"
@@ -8,7 +8,7 @@ resource "google_bigquery_dataset" "dataset" {
 
   labels = {
     env = "default"
-    time = "feb25"
+    time = "mar25"
   }
 
 }

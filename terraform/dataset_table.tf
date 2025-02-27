@@ -1,12 +1,13 @@
-resource "google_bigquery_table" "movie_data_raw_table_feb25_sumant" {
-  dataset_id                  = "movie_data_feb25_sumant"
-  table_id                    = "movie_data_raw_table_feb25"
+resource "google_bigquery_table" "movie_data_raw_table_mar25_sumant" {
+  dataset_id                  = var.dataset
+  
+  table_id                    = var.raw_movie_table
   description                 = "This is a raw movie table"
   deletion_protection         = false
 
   labels = {
     env = "default"
-    time = "feb25"
+    time = "mar25"
   }
   schema = <<EOF
   [

@@ -47,8 +47,8 @@ ratings_job_config = bigquery.LoadJobConfig(
   source_format=bigquery.SourceFormat.CSV,
 )
 
-raw_movie_table_id = "ee-india-se-data.movie_data_feb25_sumant.movie_data_raw_table_feb25"
-ratings_table_id = "ee-india-se-data.movie_data_feb25_sumant.ratings_table_feb25"
+raw_movie_table_id = "ee-india-se-data.movie_data_mar25_sumant.movie_data_raw_table_mar25"
+ratings_table_id = "ee-india-se-data.movie_data_mar25_sumant.ratings_table_mar25"
 
 def newRawMovieFileAddedToBucket(data,context):
   name = data["name"]

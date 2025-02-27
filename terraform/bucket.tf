@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "storage" {
- name          = "se-data-landing-feb25-sumant"
+ name          = var.data_bucket
  location      = "US-CENTRAL1"
  project       = "ee-india-se-data"
  storage_class = "STANDARD"
@@ -9,6 +9,20 @@ resource "google_storage_bucket" "storage" {
  uniform_bucket_level_access = true
  labels = {
     env = "default"
-    time = "feb25"
+    time = "mar25"
+  }
+}
+
+resource "google_storage_bucket" "cloudfunction-bucket-mar25-sumant" {
+  name = var.archive_bucket
+  location      = "US-CENTRAL1"
+  project        = "ee-india-se-data"
+  storage_class = "STANDARD"
+  force_destroy = true
+
+  public_access_prevention = "enforced"
+  labels = {
+    env = "default"
+    time = "mar25"
   }
 }
