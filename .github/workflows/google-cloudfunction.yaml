@@ -32,21 +32,19 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.3.8
-      # - name: Terraform fmt
-      #   id: fmt
-      #   env:
-      #     GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
-      #   run: terraform fmt -check
-      #   continue-on-error: true
-      # - name: Terraform Init
-      #   id: Init
-      #   env:
-      #     GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
-      #     GOOGLE_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
-      #   run:  terraform init
-      # - name: Terraform Plan
-      #   id: plan
-      #   env:
-      #     GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
-      #     # GOOGLE_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
-      #   run: terraform plan -no-color
+      - name: Terraform fmt
+        id: fmt
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
+        run: terraform fmt -check
+        continue-on-error: true
+      - name: Terraform Init
+        id: Init
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
+        run:  terraform init -upgrade
+      - name: Terraform Plan
+        id: plan
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
+        run: terraform plan -no-color
