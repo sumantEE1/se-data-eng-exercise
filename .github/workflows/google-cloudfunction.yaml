@@ -4,8 +4,6 @@ env:
   project_id: ee-india-se-data
   SERVICE: se-data-india-service-account
   REGION: us-east1
-  GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_DEFAULT_CREDENTIAL }}
-
 
 on: 
   push:
@@ -28,7 +26,7 @@ jobs:
         id: auth
         uses: google-github-actions/auth@v1
         with:
-          credentials_json: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -40,12 +38,12 @@ jobs:
       #     GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
       #   run: terraform fmt -check
       #   continue-on-error: true
-      - name: Terraform Init
-        id: Init
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
-          GOOGLE_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
-        run:  terraform init
+      # - name: Terraform Init
+      #   id: Init
+      #   env:
+      #     GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
+      #     GOOGLE_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
+      #   run:  terraform init
       # - name: Terraform Plan
       #   id: plan
       #   env:
