@@ -33,3 +33,24 @@ Gcloud function
 
 
 created key `354393945b0647c6b1fb656d5f249d35aba81413` in App Engine default service account with email ee-india-se-data@appspot.gserviceaccount.com 
+
+Follow steps to generate the key of service account
+*Generate a Key for the Service Account:*
+   - In the *Service Accounts* list, click on the service account you just created.
+   - Go to the *Keys* tab.
+   - Click *Add Key > Create New Key*.
+   - Choose *JSON* as the key type and click *Create*.
+   - This will download a JSON file containing the credentials. Keep this file secure.
+
+placement of secret in github - Follow the following steps
+*Store the Credentials in GitHub Secrets:*
+   - Go to your GitHub repository.
+   - Navigate to *Settings > Secrets and variables > Actions*.
+   - Click *New Repository Secret*.
+   - Name the secret (e.g., GCP_CREDENTIALS).
+   - Paste the contents of the JSON file you downloaded earlier into the secret value.
+   - Click *Add Secret*.
+
+Used github google action
+    google-github-actions/auth@v1
+    The name of env variable for google credential is `GOOGLE_CREDENTIALS`
