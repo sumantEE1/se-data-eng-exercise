@@ -1,5 +1,5 @@
 resource "google_bigquery_table" "ratings_table_mar25_sumant"{
-  dataset_id                = var.dataset
+  dataset_id                  = var.dataset
   project                     = "ee-india-se-data"
   table_id                    = "ratings_table_mar25"
   description                 = "This is a ratings table"
