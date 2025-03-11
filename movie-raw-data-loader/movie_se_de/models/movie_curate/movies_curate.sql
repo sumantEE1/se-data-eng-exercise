@@ -27,7 +27,8 @@ with movies_curate as (
     title,
     SAFE_CAST(video as BOOLEAN) as video,
     SAFE_CAST(vote_average as DECIMAL) as vote_average,
-    SAFE_CAST(vote_count as INT) as vote_count
+    SAFE_CAST(vote_count as INT) as vote_count,
+    load_date
   from ee-india-se-data.movie_data_mar25_sumant.movie_data_raw_table_mar25
 ),
 final as (

@@ -2,7 +2,7 @@
     materialized='table', alias='ratings_curate') 
 }}
     
-with ratings_curate as (
+with ratings as (
   select
     cast(timestamp as INT) as timestamp,
     cast(userId as INT) as user_id,
@@ -10,8 +10,18 @@ with ratings_curate as (
     cast(rating as DECIMAL) as rating
   from ee-india-se-data.movie_data_mar25_sumant.ratings_table_mar25
 ),
-final as ( 
-  select * from ratings_curate
+final(
+  select 
+      a.timestamp,
+      a.user_id,
+      a.movie_id,
+      a.rating
+    from ratings a 
+    join ratings b on 
+      a.movie_id = b.movie_id 
+        and
+      a.user_id = b.user_id
+    where a.timestamp > b.timestamp
 )
 
 select * from final

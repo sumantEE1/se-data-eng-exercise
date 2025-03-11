@@ -1,0 +1,126 @@
+version: 2
+
+sources:
+  - name: raw
+    database: ee-india-se-data
+    schema: movie_data_mar25_sumant
+    tables: 
+      - name: movie_data_raw_table_mar25
+models:
+  - name: movies_curate
+    columns: 
+      - name: adult
+        datatype: boolean
+      - name: belongs_to_collection
+        datatype: string
+      - name: budget
+        datatype: INT
+      - name: genres
+        datatype: string
+      - name: homepage
+        datatype:
+      - name: id
+        datatype: int
+        test: 
+          - not_null
+      - name: imdb_id
+        datatype: string
+      - name: original_language
+        datatype: string
+      - name: original_title
+        datatype: string
+      - name: overview
+        datatype: string
+      - name: popularity
+        datatype: numeric
+      - name: poster_path
+        datatype: string
+      - name: production_companies
+        datatype: string
+      - name: production_countries
+        datatype: string
+      - name: release_date
+        datatype: date
+      - name: revenue
+        datatype: int
+      - name: runtime
+        datatype: int
+      - name: spoken_languages
+        datatype: string
+      - name: status    
+        datatype: string
+      - name: tagline
+        datatype: string
+      - name: title
+        datatype: string
+      - name: video
+        datatype: boolean
+      - name: vote_average
+        datatype: numeric
+      - name: vote_count
+        datatype: int
+      - name: load_date
+        datatype: datetime
+unit_tests:
+  - name: test_movies_raw_to_curate_fields
+    description: "Generate movie curate layer with expected data type"
+    model: movies_raw
+    given:
+      - input: source('raw','movie_data_raw_table_mar25')
+        rows: 
+          - {
+              "adult":"False",
+              "belongs_to_collection":"{'id':'coll'}",
+              "budget":"100000",
+              "genres":"[{'id':'genre1'}]",
+              "homepage":"http::homepage",
+              "id":"18858",
+              "imdb_id":"18858imdb",
+              "original_language":"OrgLang",
+              "original_title":"OrgTitle",
+              "overview":"Overview",
+              "popularity":"30.11",
+              "poster_path":"/posterPath",
+              "production_companies":"[{'id':'productionComp'}]",
+              "production_countries":"[{'id':'productionCountries'}]",
+              "release_date":"2015-06-23",
+              "revenue":"1000000",
+              "runtime":"150",
+              "spoken_languages":"[{'id':'EN'}]",
+              "status":"Released",
+              "tagline":"Mock tagline",
+              "title":"Mock Title",
+              "video":"FALSE",
+              "vote_average":"5.0",
+              "vote_count":"3677",
+              "load_date":"2026-03-7T12:55:06.393498"
+            }
+    expect:
+      rows:
+        - {
+            adult : false,
+            belongs_to_collection : "{'id':'coll'}",
+            budget : 100000,
+            genres : "['{'id':'genre1'}']",
+            homepage : "http::homepage",
+            movie_id : 18858,
+            imdb_id : "18858imdb",
+            original_language : "OrgLang",
+            original_title: "OrgTitle",
+            overview: "Overview",
+            popularity: 30.11,
+            poster_path: "/posterPath",
+            production_companies: "[{'id':'productionComp'}]",
+            production_countries: "[{'id':'productionCountries'}]",
+            release_date: 2015-06-23,
+            revenue: 1000000,
+            runtime: 150,
+            spoken_languages: "[{'id':'EN'}]",
+            status: "Released",
+            tagline: "Mock tagline",
+            title: "Mock Title",
+            video: false,
+            vote_average: 5.0,
+            vote_count: 3677,
+            load_date: 2026-03-7T12:55:06.393498
+          }
