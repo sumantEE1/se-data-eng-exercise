@@ -34,6 +34,13 @@ resource "google_bigquery_table" "ratings_table_mar25_sumant"{
       "type": "STRING",
       "mode": "nullable",
       "description": ""      
+    },
+    {
+        "name": "load_date" ,
+        "type": "TIMESTAMP",
+        "mode": "nullable",
+        "defaultValueExpression": "CURRENT_TIMESTAMP()",
+        "description": ""
     }
   ]
   EOF

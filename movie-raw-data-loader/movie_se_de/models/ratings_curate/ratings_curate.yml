@@ -1,0 +1,48 @@
+version: 2
+sources:
+  - name: raw
+    database: ee-india-se-data
+    schema:  movie_data_mar25_sumant
+    tables:
+      - name: ratings_table_mar25
+
+models:
+  - name: ratings_curate
+    columns:
+      - name: timestamp
+        datatype: int
+      - name: user_id
+        datatype: int
+        tests:
+          - not_null
+      - name: movie_id
+        datatype: int
+        tests:
+          - not_null
+      - name: rating
+        datatype: numeric
+      - name: load_date
+        datatype: datetime
+unit_tests:
+  - name: test_raw_ratings_to_curate
+    description: "Generate ratings curate layer with expected data type"
+    model: ratings_raw
+    input: source('raw','ratings_table_mar25')
+    given:
+      rows: 
+        - {
+            "userId":"1",
+            "movieId":"110",
+            "rating":"4.5",
+            "timestamp":"1425942435",
+            "load_date":"2026-03-7T12:55:06.393498"
+          }
+    expect:
+      rows:
+        - {
+            user_id: 1,
+            movie_id: 110,
+            rating: 4.5,
+            timestamp: 1425942435,
+            load_date: 2026-03-7T12:55:06.393498
+          }
